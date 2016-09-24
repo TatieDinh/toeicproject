@@ -4,13 +4,14 @@ from django.contrib import admin
 from django.contrib import admin
 
 # Register your models here.
-from Toeic.models import Type, WordType, Level, Test, Topic, Vocab, Passage, Video, Question, Answer
+from Toeic.models import Type, WordType, Level, Test, Topic, GrammarTopic, Vocab, Passage, Video, Question, Answer
 # Audio, 
 admin.site.register(Type)
 admin.site.register(WordType)
 admin.site.register(Level)
 admin.site.register(Test)
 admin.site.register(Topic)
+admin.site.register(GrammarTopic)
 admin.site.register(Vocab)
 admin.site.register(Passage)
 admin.site.register(Video)

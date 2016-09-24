@@ -1,0 +1,11 @@
+<p><a href ="{% url 'Toeic:index' %}">Toeic</a>
+ {% if user.is_authenticated %} 
+ Hello, {{ user.username }}. 
+ 	<a href="{% url 'Toeic:logout' %}">log out</a> 
+ {% else %} 
+ 	<a href="{% url 'Toeic:register' %}">register</a> - 
+ 	<a href="{% url 'Toeic:login' %}">log in</a> 
+ {% endif %} 
+ </p>
+{% block content %}
+{% endblock content %}

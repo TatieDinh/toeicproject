@@ -1,0 +1,10 @@
+{% extends "Toeic/base.html" %}
+
+{% block content %}
+	<form method="post" action="{% url 'Toeic:register' %}"> 
+		{% csrf_token %}
+		{{ form.as_p }} 
+	 	<button name="submit">register</button> 
+	 	<input type="hidden" name="next" value="{% url 'Toeic:index' %}" /> 
+	</form>
+{% endblock content %}

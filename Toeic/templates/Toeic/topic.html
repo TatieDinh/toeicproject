@@ -1,0 +1,25 @@
+{% extends "Toeic/base.html" %}
+
+{% block content %}
+ 
+<p>Topic: {{topic}}</p>
+
+<ul> 
+{% for vocab in vocabs %}
+	<li>
+		<p>{{ vocab.text|linebreaks }}</p>
+		<p>{{ vocab.wordType|linebreaks }}</p>
+		<p>{{ vocab.definition|linebreaks }}</p>
+		<p>{{ vocab.otherForm|linebreaks }}</p>
+	</li> 
+{% empty %} 
+	<li>No words have been added yet.</li> 
+{% endfor %} 
+ </ul> 
+
+<p><a href="{% url 'Toeic:checkvocab' topic.id %}">Check your vocabulary</p>
+
+
+{% endblock content %}
+
+9

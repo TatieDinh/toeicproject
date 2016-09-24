@@ -44,6 +44,15 @@ class Topic(models.Model):
 	def __unicode__(self):
 		return self.text
 
+class GrammarTopic(models.Model):
+	level= models.ForeignKey(Level)
+	title = models.CharField(max_length=200, default="")
+	text = HTMLField(default="add content")
+	date_added = models.DateTimeField(auto_now_add=True)
+
+	def __unicode__(self):
+		return self.title
+
 class Vocab(models.Model):
 	wordType= models.ForeignKey(WordType)
 	level= models.ForeignKey(Level)
@@ -51,6 +60,7 @@ class Vocab(models.Model):
 	definition = models.CharField(max_length=200)
 	date_added = models.DateTimeField(auto_now_add=True)
 	otherForm = models.CharField(max_length=50, blank=True, default="")
+	topic = models.ManyToManyField(Topic)
 
 	def __unicode__(self):
 		return self.text
@@ -61,6 +71,7 @@ class Passage(models.Model):
 	text = HTMLField(default="add content")
 	vocabs = models.ManyToManyField(Vocab)
 	topics = models.ManyToManyField(Topic)
+	isTestSix = models.BooleanField(default=False)
 	
 	date_added = models.DateTimeField(auto_now_add=True)
 
@@ -88,12 +99,17 @@ class Video(models.Model):
 class Question(models.Model):
 	level= models.ForeignKey(Level)
 	typeOf = models.ForeignKey(Type)
-	topics = models.ForeignKey(Topic)
+	topics = models.ManyToManyField(Topic)
+	grammarTopics = models.ManyToManyField(GrammarTopic)
 	passage = models.ForeignKey(Passage)
 	video = models.ForeignKey(Video)
-	text = models.TextField(default = "unknown")
-	explanation = models.TextField
+	text = models.TextField(default = "")
+	fulltext = models.TextField(default = "")
+	explanation = models.TextField(default = "")
+	translation = models.TextField(default = "")
 	vocabs = models.ManyToManyField(Vocab)
+	tests = models.ManyToManyField(Test)
+
 	
 	date_added = models.DateTimeField(auto_now_add=True)
 
@@ -102,11 +118,12 @@ class Question(models.Model):
 
 class Answer(models.Model):
 	question = models.ForeignKey(Question)
-	text = models.TextField
-	value = models.BooleanField
+	text = models.TextField(default="")
+	isTrue = models.BooleanField(default = False)
 
 	date_added = models.DateTimeField(auto_now_add=True)
 
 	def __unicode__(self):
 		return self.text
+
 
