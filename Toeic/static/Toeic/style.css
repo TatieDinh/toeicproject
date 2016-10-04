@@ -1,0 +1,262 @@
+/*!
+ * Start Bootstrap - Business Casual (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: url('images/bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+a,p {
+    font-size: 1.25em;
+    line-height: 1.6;
+    color: #000;
+}
+
+hr {
+    max-width: 400px;
+    border-color: #999999;
+}
+
+.brand,
+.address-bar {
+    display: none;
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.navbar-nav {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.img-full {
+    min-width: 100%;
+}
+
+.brand-before,
+.brand-name {
+    text-transform: capitalize;
+}
+
+.brand-before {
+    margin: 15px 0;
+}
+
+.brand-name {
+    margin: 0;
+    font-size: 4em;
+}
+
+.tagline-divider {
+    margin: 15px auto 3px;
+    max-width: 250px;
+    border-color: #999999;
+}
+
+.box {
+    margin-bottom: 20px;
+    padding: 30px 15px;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+}
+
+.intro-text {
+    text-transform: uppercase;
+    font-size: 1.25em;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.img-border {
+    float: none;
+    margin: 0 auto 0;
+    border: #999999 solid 1px;
+}
+
+.img-left {
+    float: none;
+    margin: 0 auto 0;
+}
+
+footer {
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+}
+
+footer p {
+    margin: 0;
+    padding: 50px 0;
+}
+
+@media screen and (min-width:768px) {
+    .brand {
+        display: inherit;
+        margin: 0;
+        padding: 30px 0 10px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 5em;
+        font-weight: 700;
+        line-height: normal;
+        color: #fff;
+    }
+
+    .top-divider {
+        margin-top: 0;
+    }
+
+    .img-left {
+        float: left;
+        margin-right: 25px;
+    }
+
+    .address-bar {
+        display: inherit;
+        margin: 0;
+        padding: 0 0 40px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        text-transform: uppercase;
+        font-size: 1.25em;
+        font-weight: 400;
+        letter-spacing: 3px;
+        color: #fff;
+    }
+
+    .navbar {
+        border-radius: 0;
+    }
+
+    .navbar-header {
+        display: none;
+    }
+
+    .navbar {
+        min-height: 0;
+    }
+
+    .navbar-default {
+        border: none;
+        background: #fff;
+        background: rgba(255,255,255,0.9);
+    }
+
+    .nav>li>a {
+        padding: 35px;
+    }
+
+    .navbar-nav>li>a {
+        line-height: normal;
+    }
+
+    .navbar-nav {
+        display: table;
+        float: none;
+        margin: 0 auto;
+        table-layout: fixed;
+        font-size: 1em;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .box:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+.list-type5{
+width:410px;
+margin:0 auto;
+}
+.list-type5 ol {
+list-style-type: none;
+list-style-type: decimal !ie; /*IE 7- hack*/
+margin: 0;
+margin-left: 1em;
+padding: 0;
+counter-reset: li-counter;
+}
+.list-type5 ol li{
+position: relative;
+margin-bottom: 1.5em;
+padding: 0.5em;
+background-color: #F0D756;
+padding-left: 58px;
+}
+
+.list-type5 a{
+text-decoration:none;
+color:black;
+font-size:20px;
+}
+
+.list-type5 li:hover{
+box-shadow:inset -1em 0 #6CD6CC;
+-webkit-transition: box-shadow 0.5s; /* For Safari 3.1 to 6.0 */
+transition: box-shadow 0.5s;
+}
+
+.list-type5 ol li:before {
+position: absolute;
+top: -0.3em;
+left: -0.5em;
+width: 1.8em;
+height: 1.2em;
+font-size: 2em;
+line-height: 1.2;
+font-weight: bold;
+text-align: center;
+color: white;
+background-color: #6CD6CC;
+transform: rotate(-20deg);
+-ms-transform: rotate(-20deg);
+-webkit-transform: rotate(-20deg);
+z-index: 99;
+overflow: hidden;
+content: counter(li-counter);
+counter-increment: li-counter;
+}
+.table{
+    padding: 30px;
+    }
+th, td {
+    font-size: 1.2em;
+    padding: 20px;
+}
+th, td:first-letter {
+    text-transform: uppercase;
+}
+.table span{
+    font-size: 0.8 em;
+}
+.grammartopiclink a{
+    font-size: 1 em;
+}
+

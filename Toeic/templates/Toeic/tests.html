@@ -2,18 +2,32 @@
 
 {% block content %}
  
-<p>Test</p>
-
-<ul> 
-{% for test in tests %}
-	<li>
-	 	<a href="{% url 'Toeic:test' test.id %}">{{ test }}</a>
- 	</li> 
-{% empty %} 
-	<li>No test have been added yet.</li> 
-{% endfor %} 
- </ul>
-
+<div class ="container">
+<div class="row">
+    <div class="box">  
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">
+                <strong>Tests</strong>
+            </h2>
+            <hr>
+    	</div>
+    	<div class="col-lg-12">
+            <div class="list-type5">
+				<ol> 
+				{% for test in tests %}
+					<li>
+					<a href="{% url 'Toeic:test' test.id %}">{{ test }}</a>
+					</li> 
+				{% empty %} 
+					<li>No tests have been added yet.</li> 
+				{% endfor %} 
+				 </ol> 
+			</div>
+    	</div>
+    </div>
+</div>
+</div>
 
 {% endblock content %}
 

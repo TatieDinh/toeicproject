@@ -1,0 +1,57 @@
+{% extends "Toeic/base.html" %}
+
+{% block content %}
+<div class ="container">
+<div class="row">
+    <div class="box">  
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center"><a href="{% url 'Toeic:tests' %}">Test</a>: 
+                <strong>{{test}}</strong>
+            </h2>
+            <hr>
+        </div>
+        <div class="col-lg-12">
+			<table class="table"> 
+				{% for question, list in questions.iteritems %}
+					<tr>
+						<td style ="padding-right:40px;">
+						{{ question.text|linebreaks }}
+						<p><strong>Explanation:</strong></br> {{question.explanation}}</p>
+						<p><strong>Translation:</strong></br> {{question.translation}}</p>
+						<p class="grammartopiclink"><strong>Grammar Topics related:</strong></br>
+						{%for grammartopic in list.2 %}
+						<a style="font-size:1em; color:blue" href ="{% url 'Toeic:grammartopic' grammartopic.id %}" target="_blank">{{grammartopic}}</a></br>
+						{% endfor %}
+						</p>
+						</td>
+						<td style ="">
+						{%for answer in list.0 %}
+						{% if answer.isTrue != False %}
+		                    <p style="color:green;">{{answer.text}}</p>
+						{% else %}
+							<p>{{answer.text}}</p>
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td>	
+						{% if answer != list.1 %}
+							<p style="color:red;">{{list.1}}</p>
+						{% else %}
+							<p>{{list.1}}</p>
+						{% endif %}
+						</td>
+					</tr> 
+					{% empty %} 
+					<tr>No questions have been added yet.</tr> 
+					{% endfor %}
+			</table>
+			<div class ="text-center"><button class="btn btn-secondary"><a href="{% url 'Toeic:checkvocabtest' test.id %}">Check your vocabulary</button></div>
+			</form>			
+        </div>
+   </div>
+</div>
+</div>
+ 
+
+{% endblock content %}

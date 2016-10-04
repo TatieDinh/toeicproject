@@ -14,20 +14,22 @@
         </div>
         <div class="col-lg-12">
             <table class="table"> 
-				{% for vocab in vocabs %}
+				{% for vocab, user_vocab in vocabs.iteritems %}
 					<tr>
-						<td style ="padding-left: 120px">{{ vocab.text}}</td>
+						<td style ="padding-left: 80px">{{ vocab.text}}</td>
 						<td style ="font-size: 0.8em;">{{vocab.wordType}}</td>
-						<td style ="padding-left: 120px">{{ vocab.definition }}</td>
+						<td style ="padding-left: 80px">{{ vocab.definition }}</td>
+						<td style ="padding-left: 50px; color:red">{{ user_vocab }}</td>
 					</tr> 
 				{% empty %} 
 					<tr>No words have been added yet.</tr> 
 				{% endfor %}
 			</table> 
-			<div class ="text-center"><button type="button" class="btn btn-secondary"><a href="{% url 'Toeic:checkvocab' topic.id %}">Check your vocabulary</a></button></div>
+			<div class ="text-center"><button type="button" class="btn btn-secondary"><a href="{% url 'Toeic:checkvocab' topic.id %}">Take quiz again?</a></button></div>
         </div>
    </div>
 </div>
 </div>
+
 
 {% endblock content %}

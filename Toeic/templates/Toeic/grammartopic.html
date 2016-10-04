@@ -1,0 +1,20 @@
+{% extends "Toeic/base.html" %}
+
+{% block content %}
+<div class ="container">
+<div class="row">
+    <div class="box">  
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center"><a href="{% url 'Toeic:grammartopics'%}">Grammar Topic</a>:
+                <strong>{{grammartopic}}</strong>
+            </h2>
+            <hr>
+        </div>
+        <div class="col-lg-12">
+            <p>{{ grammartopic.text|safe }}</p>	
+        </div>
+   </div>
+</div>
+</div>
+{% endblock content %}

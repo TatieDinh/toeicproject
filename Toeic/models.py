@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from tinymce.models import HTMLField
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -110,7 +111,6 @@ class Question(models.Model):
 	vocabs = models.ManyToManyField(Vocab)
 	tests = models.ManyToManyField(Test)
 
-	
 	date_added = models.DateTimeField(auto_now_add=True)
 
 	def __unicode__(self):
@@ -126,4 +126,24 @@ class Answer(models.Model):
 	def __unicode__(self):
 		return self.text
 
+class UserAnswer(models.Model):
+	user = models.ForeignKey(User)
+	test = models.ForeignKey(Test)
+	question = models.ForeignKey(Question)
+	answer = models.ForeignKey(Answer)
+
+	date_added = models.DateTimeField(auto_now_add=True)
+
+	def __unicode__(self):
+		return self.answer
+
+class UserVocab(models.Model):
+	user = models.ForeignKey(User)
+	vocab = models.ForeignKey(Vocab)
+	text = models.TextField(default="")
+
+	date_added = models.DateTimeField(auto_now_add=True)
+	
+	def __unicode__(self):
+		return self.text
 

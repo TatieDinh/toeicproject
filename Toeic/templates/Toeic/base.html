@@ -1,11 +1,73 @@
-<p><a href ="{% url 'Toeic:index' %}">Toeic</a>
- {% if user.is_authenticated %} 
- Hello, {{ user.username }}. 
- 	<a href="{% url 'Toeic:logout' %}">log out</a> 
- {% else %} 
- 	<a href="{% url 'Toeic:register' %}">register</a> - 
- 	<a href="{% url 'Toeic:login' %}">log in</a> 
- {% endif %} 
- </p>
-{% block content %}
-{% endblock content %}
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="description" content="">
+    	<title>Toeic</title>
+
+    	{% load static %}
+
+    	<link type="text/css" rel="stylesheet" href="{% static 'Toeic/bootstrap.min.css' %}" />
+		<link type="text/css" rel="stylesheet" href="{% static 'Toeic/style.css' %}" />
+    		
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,vietnamese" rel="stylesheet" type="text/css">
+    	<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic&subset=latin,vietnamese" rel="stylesheet" type="text/css">
+
+	</head>
+	<body>
+		<div class="brand">Easy Toeic</div>
+   		<div class="address-bar">Your place to learn Toeic. All in One. Easy and Effective</div>
+
+		   <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Easy Toeic</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{% url 'Toeic:index' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Toeic:topics' %}">Vocabulary</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Toeic:tests' %}">Test</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Toeic:grammartopics' %}">Grammar</a>
+                    </li>
+                    {% if user.is_authenticated %} 
+					<li>
+	 				<a href="{% url 'Toeic:logout' %}">Hello, {{ user.username }}.
+					log out</a> 
+					</li>
+					{% else %} 
+					<li><a href="{% url 'Toeic:register' %}">register</a></li>
+					<li><a href="{% url 'Toeic:login' %}">log in</a> </li>
+	 				{% endif %} 
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+		{% block content %}
+		{% endblock content %}
+	</body>
+</html>
+
+
+

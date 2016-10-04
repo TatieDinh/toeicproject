@@ -1,0 +1,3 @@
+tp_env
+*.pyc
+__pycache__
